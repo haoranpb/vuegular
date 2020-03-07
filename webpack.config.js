@@ -1,18 +1,18 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
   ],
   module: {
     rules: [
@@ -21,14 +21,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
-      }
-    ]
-  }
-}
+        loader: 'vue-loader',
+      },
+    ],
+  },
+};
