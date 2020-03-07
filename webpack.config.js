@@ -8,10 +8,23 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: './src/main.js',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: isProd ? false : 'inline-source-map',
+  optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
