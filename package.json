@@ -26,6 +26,7 @@
     "package.json": "sort-package-json"
   },
   "prettier": {
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },

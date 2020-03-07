@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   mode: process.env.production ? 'production' : 'development',
@@ -33,4 +33,4 @@ module.exports = {
       },
     ],
   },
-};
+}

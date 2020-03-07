@@ -7,5 +7,5 @@
 <script>
 export default {
   name: 'the-header',
-};
+}
 </script>
