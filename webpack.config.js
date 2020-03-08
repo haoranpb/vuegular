@@ -13,6 +13,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: isProd ? false : 'cheap-module-eval-source-map',
+  stats: {
+    children: false,
+    modules: false,
+  },
   optimization: {
     moduleIds: 'hashed',
     runtimeChunk: 'single',
