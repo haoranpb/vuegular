@@ -18,8 +18,14 @@ export default {
 }
 </script>
 
-<style scoped>
-h1 {
-  color: #4fc08d;
+<style>
+a {
+  text-decoration: none;
+  color: rgb(88, 96, 105);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 </style>
