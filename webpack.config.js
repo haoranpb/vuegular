@@ -12,7 +12,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devtool: isProd ? false : 'inline-source-map',
+  devtool: isProd ? false : 'cheap-module-eval-source-map',
   optimization: {
     moduleIds: 'hashed',
     runtimeChunk: 'single',
