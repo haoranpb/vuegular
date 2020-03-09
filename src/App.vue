@@ -28,9 +28,13 @@ export default {
   padding-right: var(--container-padding);
   width: 100%;
 }
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
 a {
   text-decoration: none;
-  color: rgb(88, 96, 105);
+  color: black;
 }
 * {
   box-sizing: border-box;
