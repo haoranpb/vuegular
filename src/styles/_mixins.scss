@@ -1,0 +1,8 @@
+@mixin vertical-align($height, $line-height: 2rem) {
+  height: $height;
+  line-height: $line-height;
+
+  $padding: ($height - $line-height) / 2;
+  padding-top: $padding;
+  padding-bottom: $padding;
+}

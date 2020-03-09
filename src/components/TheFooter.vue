@@ -1,5 +1,5 @@
 <template>
-  <footer id="site-footer" class="container flex-container">
+  <footer id="site-footer" class="flex-container">
     <external-link link="https://github.com/ludanxer/vuegular">
       <i class="fab fa-github fa-lg"></i>
     </external-link>
@@ -20,14 +20,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+
 #site-footer {
-  --vertical-padding: 1.5rem;
-  height: var(--footer-height);
-  padding-top: var(--vertical-padding);
-  padding-bottom: var(--vertical-padding);
+  @include vertical-align($footer-height);
   font-size: 1rem;
-  line-height: calc(var(--footer-height) - var(--vertical-padding) * 2);
   background-color: rgb(250, 251, 252);
 }
 .fa-github {

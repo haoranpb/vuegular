@@ -1,5 +1,5 @@
 <template>
-  <header id="site-header" class="container flex-container">
+  <header id="site-header" class="flex-container">
     <h1 id="site-name">Vuegular</h1>
     <nav class="nav-bar">
       <router-link to="/">Home</router-link>
@@ -14,14 +14,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+
 #site-header {
-  --vertical-padding: 1rem;
-  height: var(--header-height);
+  @include vertical-align($header-height);
   color: #2c3e50;
-  padding-top: var(--vertical-padding);
-  padding-bottom: var(--vertical-padding);
-  line-height: calc(var(--header-height) - var(--vertical-padding) * 2);
   border-bottom: 1px solid #eaecef;
 }
 #site-name {
@@ -32,6 +30,6 @@ export default {
   margin-left: 2rem;
 }
 .router-link-exact-active {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid $primary-color;
 }
 </style>

@@ -11,16 +11,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #not-found {
   padding-top: 10%;
-}
-#not-found a {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-#not-found h2 {
-  margin-bottom: 1rem;
+
+  a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
 }
 </style>

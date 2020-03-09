@@ -59,6 +59,19 @@ module.exports = {
         loader: 'vue-loader',
       },
       {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `@import "src/styles/variables.scss";`,
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader'],
       },
