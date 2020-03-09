@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -13,6 +14,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: isProd ? false : 'cheap-module-eval-source-map',
+  devServer: {
+    historyApiFallback: true,
+  },
   stats: {
     children: false,
     modules: false,
@@ -35,6 +39,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    // Actaully, this plugin is not needed for dev
+    new CopyPlugin([{ from: 'public/*', flatten: true }]),
     new VueLoaderPlugin(),
   ],
   module: {
