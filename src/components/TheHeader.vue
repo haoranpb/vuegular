@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="container">
     <h1>Vuegular</h1>
     <nav>
       <router-link to="/home">Home</router-link>

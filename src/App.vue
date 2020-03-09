@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-header />
-    <router-view></router-view>
+    <router-view class="container"></router-view>
     <the-footer />
   </div>
 </template>
@@ -19,6 +19,15 @@ export default {
 </script>
 
 <style>
+:root {
+  --primary-color: #4fc08d;
+  --container-padding: 15%;
+}
+.container {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+}
 a {
   text-decoration: none;
   color: rgb(88, 96, 105);

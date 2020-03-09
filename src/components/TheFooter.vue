@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="container">
     <external-link link="https://github.com/ludanxer/vuegular">
       <i class="fab fa-github fa-lg"></i>
     </external-link>
@@ -23,8 +23,8 @@ export default {
 <style scoped>
 footer {
   height: 5rem;
-  width: 100%;
-  padding: 1.5rem 8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   font-size: 1rem;
   line-height: 2rem;
   display: flex;
