@@ -22,11 +22,12 @@ export default {
 
 <style scoped>
 #site-footer {
-  height: 5rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  --vertical-padding: 1.5rem;
+  height: var(--footer-height);
+  padding-top: var(--vertical-padding);
+  padding-bottom: var(--vertical-padding);
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: calc(var(--footer-height) - var(--vertical-padding) * 2);
   background-color: rgb(250, 251, 252);
 }
 .fa-github {

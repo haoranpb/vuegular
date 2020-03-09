@@ -16,11 +16,12 @@ export default {
 
 <style scoped>
 #site-header {
-  height: 4rem;
+  --vertical-padding: 1rem;
+  height: var(--header-height);
   color: #2c3e50;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  line-height: 2rem;
+  padding-top: var(--vertical-padding);
+  padding-bottom: var(--vertical-padding);
+  line-height: calc(var(--header-height) - var(--vertical-padding) * 2);
   border-bottom: 1px solid #eaecef;
 }
 #site-name {

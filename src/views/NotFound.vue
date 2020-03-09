@@ -13,7 +13,6 @@ export default {
 
 <style scoped>
 #not-found {
-  height: calc(100vh - 4rem - 5rem);
   padding-top: 10%;
 }
 #not-found a {
