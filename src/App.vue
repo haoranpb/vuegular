@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-header />
-    <h1>Hello Vuejs!</h1>
+    <router-view></router-view>
     <the-footer />
   </div>
 </template>

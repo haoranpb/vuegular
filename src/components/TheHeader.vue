@@ -1,6 +1,10 @@
 <template>
   <header>
-    <h1>This is the header</h1>
+    <h1>Vuegular</h1>
+    <nav>
+      <router-link to="/home">Home</router-link>
+      <router-link to="/about">About</router-link>
+    </nav>
   </header>
 </template>
 
