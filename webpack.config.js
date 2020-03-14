@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -42,6 +43,9 @@ module.exports = {
     // Actaully, this plugin is not needed for dev
     new CopyPlugin([{ from: 'public/*', flatten: true }]),
     new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
   ],
   module: {
     rules: [
@@ -61,7 +65,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'vue-style-loader',
+          process.env.NODE_ENV !== 'production'
+            ? 'vue-style-loader'
+            : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'sass-loader',
