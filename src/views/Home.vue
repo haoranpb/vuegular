@@ -1,10 +1,8 @@
 <template>
   <div id="home">
-    <h1>This is home page</h1>
     <subscription-card
       v-for="item in subscriptions"
       :key="item.id"
-      :icon="item.icon"
       :title="item.title"
       :note="item.note"
       :price="item.price"
@@ -28,3 +26,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+#home {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+</style>

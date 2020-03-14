@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss">
 @import './styles/_ placeholders.scss';
+$main-horizontal-padding: 3%;
 
 .flex-container {
   @extend %container;
@@ -29,6 +30,8 @@ export default {
 .main-container {
   @extend %container;
   height: calc((100vh - #{$header-height} - #{$footer-height}));
+  padding-top: $main-horizontal-padding;
+  padding-bottom: $main-horizontal-padding;
 }
 a {
   text-decoration: none;
