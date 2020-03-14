@@ -2,7 +2,7 @@
   "name": "vuegular",
   "version": "0.0.1",
   "private": true,
-  "description": "Having fun with Vuejs!",
+  "description": "A simple application with vue 2.0 from scratch",
   "repository": "https://github.com/ludanxer/vuegular.git",
   "license": "MIT",
   "author": "ludanxer <ludanxer@gmail.com>",
