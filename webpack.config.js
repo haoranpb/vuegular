@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const WebpackBar = require('webpackbar')
 
 module.exports = env => {
   const basePluginList = [
@@ -13,6 +14,7 @@ module.exports = env => {
     }),
     new CopyPlugin([{ from: 'public/*', flatten: true }]),
     new VueLoaderPlugin(),
+    new WebpackBar(),
   ]
 
   const prodPluginList = [
@@ -32,13 +34,9 @@ module.exports = env => {
     devtool: env.prod ? false : 'cheap-module-eval-source-map',
     devServer: {
       historyApiFallback: true,
+      stats: 'errors-only',
     },
-    stats: env.prod
-      ? {
-          children: false,
-          modules: false,
-        }
-      : 'errors-warnings',
+    stats: 'errors-warnings',
     optimization: {
       moduleIds: 'hashed',
       runtimeChunk: 'single',
