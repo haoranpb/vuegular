@@ -35,6 +35,7 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: flex-start;
+  overflow: scroll;
 }
 
 @media screen and (max-width: $breakpoint-tablet) {

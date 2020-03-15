@@ -21,7 +21,6 @@ export default {
   @include vertical-align($header-height);
   color: #2c3e50;
   border-bottom: 1px solid #eaecef;
-  position: fixed;
 }
 #site-name {
   font-size: 1.8rem;
