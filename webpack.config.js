@@ -6,11 +6,20 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const { name, description, repository } = require('./package.json')
 
 module.exports = env => {
   const basePluginList = [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      meta: {
+        description: description,
+        'twitter:card': 'summary',
+        'twitter:creator': '@ludanxer',
+        'twitter:url': repository,
+        'twitter:title': name,
+        'twitter:description': description,
+      },
     }),
     new CopyPlugin([{ from: 'public/*', flatten: true }]),
     new VueLoaderPlugin(),
