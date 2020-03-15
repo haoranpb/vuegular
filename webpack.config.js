@@ -5,78 +5,78 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const isProd = process.env.NODE_ENV === 'production'
-
-module.exports = {
-  mode: isProd ? 'production' : 'development',
-  entry: './src/main.js',
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devtool: isProd ? false : 'cheap-module-eval-source-map',
-  devServer: {
-    historyApiFallback: true,
-  },
-  stats: {
-    children: false,
-    modules: false,
-  },
-  optimization: {
-    moduleIds: 'hashed',
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
+module.exports = env => {
+  return {
+    mode: env.prod ? 'production' : 'development',
+    entry: './src/main.js',
+    output: {
+      filename: '[name].[contenthash].js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+    devtool: env.prod ? false : 'cheap-module-eval-source-map',
+    devServer: {
+      historyApiFallback: true,
+    },
+    stats: {
+      children: false,
+      modules: false,
+    },
+    optimization: {
+      moduleIds: 'hashed',
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
         },
       },
     },
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-    // Actaully, this plugin is not needed for dev
-    new CopyPlugin([{ from: 'public/*', flatten: true }]),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          process.env.NODE_ENV !== 'production'
-            ? 'vue-style-loader'
-            : MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
+      // Actaully, this plugin is not needed for dev
+      new CopyPlugin([{ from: 'public/*', flatten: true }]),
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'style.css',
+      }),
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: {
+            loader: 'babel-loader',
             options: {
-              prependData: `@import "src/styles/variables.scss";`,
+              presets: ['@babel/preset-env'],
             },
           },
-        ],
-      },
-    ],
-  },
+        },
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            process.env.NODE_ENV !== 'production'
+              ? 'vue-style-loader'
+              : MiniCssExtractPlugin.loader,
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                prependData: `@import "src/styles/variables.scss";`,
+              },
+            },
+          ],
+        },
+      ],
+    },
+  }
 }

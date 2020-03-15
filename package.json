@@ -7,8 +7,8 @@
   "license": "MIT",
   "author": "ludanxer <ludanxer@gmail.com>",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "dev": "webpack-dev-server --open"
+    "build": "webpack --env.prod",
+    "dev": "webpack-dev-server --env.prod=false"
   },
   "husky": {
     "hooks": {
