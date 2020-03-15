@@ -6,6 +6,21 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = env => {
+  const basePluginList = [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+    new CopyPlugin([{ from: 'public/*', flatten: true }]),
+    new VueLoaderPlugin(),
+  ]
+
+  const prodPluginList = [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ]
+
   return {
     mode: env.prod ? 'production' : 'development',
     entry: './src/main.js',
@@ -17,10 +32,12 @@ module.exports = env => {
     devServer: {
       historyApiFallback: true,
     },
-    stats: {
-      children: false,
-      modules: false,
-    },
+    stats: env.prod
+      ? {
+          children: false,
+          modules: false,
+        }
+      : 'errors-warnings',
     optimization: {
       moduleIds: 'hashed',
       runtimeChunk: 'single',
@@ -34,18 +51,7 @@ module.exports = env => {
         },
       },
     },
-    plugins: [
-      new CleanWebpackPlugin(),
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-      }),
-      // Actaully, this plugin is not needed for dev
-      new CopyPlugin([{ from: 'public/*', flatten: true }]),
-      new VueLoaderPlugin(),
-      new MiniCssExtractPlugin({
-        filename: 'style.css',
-      }),
-    ],
+    plugins: env.prod ? basePluginList : basePluginList.concat(prodPluginList),
     module: {
       rules: [
         {
