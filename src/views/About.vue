@@ -3,7 +3,7 @@
     <h3>What is Vuegular?</h3>
     <p>
       Usually, I love using
-      <external-link href="https://cli.vuejs.org/"> vue-cli</external-link> to
+      <external-link link="https://cli.vuejs.org/"> vue-cli</external-link> to
       quickly start a project 🚀 and focus on the website I want to build, it's
       an amazing tool so I don't have to worry about staffs like webpack.
       However, things have changed for me, now I want to dig a little deeper
@@ -14,7 +14,7 @@
       So here at Vuegular, I'll try to build a simple web application with Vuejs
       <b>from scratch</b>. And I hope I could finish this and benefit from it.
       If you are interested in how I build Vuegular step by step, check out the
-      <external-link href="https://github.com/ludanxer/vuegular/commits/master"
+      <external-link link="https://github.com/ludanxer/vuegular/commits/master"
         >commit history</external-link
       >!
     </p>
