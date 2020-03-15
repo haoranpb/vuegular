@@ -29,8 +29,8 @@ $main-horizontal-padding: 3%;
 }
 .main-container {
   @include container($container-padding);
-  height: calc((100vh - #{$header-height} - #{$footer-height}));
-  padding-top: $main-horizontal-padding;
+  height: calc((100vh - #{$footer-height}));
+  padding-top: calc(#{$main-horizontal-padding} + #{$header-height});
   padding-bottom: $main-horizontal-padding;
 }
 a {
