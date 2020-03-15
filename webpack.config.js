@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = env => {
   const basePluginList = [
@@ -41,6 +42,7 @@ module.exports = env => {
     optimization: {
       moduleIds: 'hashed',
       runtimeChunk: 'single',
+      minimizer: [new UglifyJsPlugin()],
       splitChunks: {
         cacheGroups: {
           vendor: {
