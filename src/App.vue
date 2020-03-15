@@ -19,16 +19,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/_ placeholders.scss';
+@import './styles/_mixins.scss';
 $main-horizontal-padding: 3%;
 
 .flex-container {
-  @extend %container;
+  @include container($container-padding);
   display: flex;
   justify-content: space-between;
 }
 .main-container {
-  @extend %container;
+  @include container($container-padding);
   height: calc((100vh - #{$header-height} - #{$footer-height}));
   padding-top: $main-horizontal-padding;
   padding-bottom: $main-horizontal-padding;
@@ -41,5 +41,15 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .main-container {
+    @include container($tablet-container-padding);
+  }
+
+  .flex-container {
+    @include container($tablet-container-padding);
+  }
 }
 </style>

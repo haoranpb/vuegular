@@ -28,11 +28,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+
 #home {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: flex-start;
   overflow: scroll;
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  #home {
+    @include container($tablet-container-padding);
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  #home {
+    @include container($mobile-container-padding);
+    justify-content: space-around;
+  }
 }
 </style>

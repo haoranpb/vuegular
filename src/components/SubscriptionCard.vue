@@ -60,4 +60,17 @@ $card-radius: 4px;
   padding-top: 3%;
   line-height: 1.5rem;
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+  $mobile-card-height: 9rem;
+
+  .subscription-card {
+    margin-top: 3%;
+    margin-bottom: 6%;
+    height: $mobile-card-height;
+  }
+  .top-card {
+    height: $mobile-card-height / 3;
+  }
+}
 </style>

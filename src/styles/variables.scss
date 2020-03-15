@@ -1,4 +1,11 @@
+// responsive breakpoints
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 575px;
+
+// global variables
 $primary-color: #4fc08d;
 $container-padding: 15%;
 $header-height: 4rem;
 $footer-height: 5rem;
+$tablet-container-padding: 10%;
+$mobile-container-padding: 5%;

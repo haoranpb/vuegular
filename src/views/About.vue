@@ -42,4 +42,13 @@ export default {
     font-weight: 500;
   }
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+  #about {
+    margin-top: 3%;
+    p {
+      margin-top: 6%;
+    }
+  }
+}
 </style>

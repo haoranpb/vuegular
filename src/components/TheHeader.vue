@@ -32,4 +32,11 @@ export default {
 .router-link-exact-active {
   border-bottom: 2px solid $primary-color;
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .nav-bar a {
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+  }
+}
 </style>

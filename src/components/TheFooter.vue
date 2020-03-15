@@ -1,6 +1,6 @@
 <template>
   <footer id="site-footer" class="flex-container">
-    <external-link link="https://github.com/ludanxer/vuegular">
+    <external-link link="https://github.com/ludanxer/vuegular" class="icons">
       <i class="fab fa-github fa-lg"></i>
     </external-link>
 
@@ -33,5 +33,11 @@ export default {
 }
 .external-link {
   color: rgb(88, 96, 105);
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .icons {
+    display: none;
+  }
 }
 </style>

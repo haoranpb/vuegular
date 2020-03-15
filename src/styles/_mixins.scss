@@ -6,3 +6,9 @@
   padding-top: $padding;
   padding-bottom: $padding;
 }
+
+@mixin container($container-padding) {
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  width: 100%;
+}
