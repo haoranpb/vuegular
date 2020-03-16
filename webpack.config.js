@@ -6,17 +6,27 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackBar = require('webpackbar')
-const { name, description, repository } = require('./package.json')
+const { name, description, homepage } = require('./package.json')
 
 module.exports = env => {
   const basePluginList = [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      templateParameters: {
+        metas: {
+          'og:type': 'website',
+          'og:url': homepage,
+          'og:title': name,
+          'og:description': description,
+          'og:site_name': name,
+          'og:locale': 'en',
+        },
+      },
       meta: {
         description: description,
         'twitter:card': 'summary',
         'twitter:creator': '@ludanxer',
-        'twitter:url': repository,
+        'twitter:url': homepage,
         'twitter:title': name,
         'twitter:description': description,
       },

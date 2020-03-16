@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "A simple application with vue 2.0 from scratch",
+  "homepage": "https://github.com/ludanxer/vuegular",
   "repository": "https://github.com/ludanxer/vuegular.git",
   "license": "MIT",
   "author": "ludanxer <ludanxer@gmail.com>",
